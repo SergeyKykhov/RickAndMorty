@@ -13,5 +13,5 @@ struct Constants {
     static let episodeUrl = "https://rickandmortyapi.com/api/episode/"
     static let locationUrl = "https://rickandmortyapi.com/api/location/"
     static let params = "character/\(Constants.countCharacters)"
-    static let countCharacters = "1,2,3,4,5,7,23,48,58,78,83,86,92,94"
+    static let countCharacters = "1,2,3,4,5,7,23,48,58,78,83,86,92,94,6,8,9,10"
 }

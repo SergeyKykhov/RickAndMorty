@@ -23,7 +23,7 @@ struct DetailScreenInfo: View {
     init(character: CharactersModelElement) {
         self.character = character
     }
-
+    
     // MARK: - Methods
     func formatEpisode(_ episode: String) -> String {
         let components = episode.split(separator: "E")
@@ -37,8 +37,8 @@ struct DetailScreenInfo: View {
     
     //MARK: - Body
     var body: some View {
-
-    //MARK: - Loader
+        
+        //MARK: - Loader
         ZStack {
             Color(red: 0.013, green: 0.048, blue: 0.119).edgesIgnoringSafeArea(.all)
             Image("Stars")
@@ -49,22 +49,22 @@ struct DetailScreenInfo: View {
                 ProgressView()
                     .progressViewStyle(CircularProgressViewStyle(tint: .green))
             } else {
-
-    //MARK: - ElementsUI
+                
+                //MARK: - ElementsUI
                 ScrollView(.vertical) {
                     LazyVStack(alignment: .center) {
-
+                        
                         Spacer(minLength: 16)
-
+                        
                         // Профиль изображения
                         KFImage(URL(string: character.image)).resizable()
                             .aspectRatio(contentMode: .fill)
                             .padding(.horizontal, 81.0)
                             .frame(width: 148, height: 148)
                             .cornerRadius(10)
-
+                        
                         Spacer(minLength: 24)
-
+                        
                         // Имя персонажа
                         Text(character.name)
                             .font(.title3)
@@ -73,9 +73,9 @@ struct DetailScreenInfo: View {
                             .multilineTextAlignment(.center)
                             .lineLimit(1)
                             .padding(.horizontal)
-
+                        
                         Spacer(minLength: 8)
-
+                        
                         // Статус персонажа
                         Text(character.status)
                             .font(.system(size: 16))
@@ -83,9 +83,9 @@ struct DetailScreenInfo: View {
                             .multilineTextAlignment(.center)
                             .lineLimit(1)
                             .padding(.horizontal)
-
+                        
                         Spacer(minLength: 24)
-
+                        
                         // Информация о персонаже
                         LazyVGrid(columns: columns, alignment: .leading) {
                             Section(header: Text("Info").font(.system(size: 17)).bold().foregroundColor(.white)) {
@@ -126,7 +126,7 @@ struct DetailScreenInfo: View {
                                     .padding()
                                 }
                             }
-
+                            
                             // Локация персонажа
                             Section(header: Text("Origin").font(.system(size: 17)).bold().foregroundColor(.white).padding(.top, 15)) {
                                 ZStack(){
@@ -158,7 +158,7 @@ struct DetailScreenInfo: View {
                                     .padding(8)
                                 }
                             }
-
+                            
                             // Эпизоды с персонажем
                             Section(header: Text("Episodes").font(.system(size: 17)).bold().foregroundColor(.white).padding(.top, 15)) {
                                 ForEach(episodes, id: \.id) { episode in
@@ -195,19 +195,22 @@ struct DetailScreenInfo: View {
                 .background(Color(red: 0.013, green: 0.048, blue: 0.119))
             }
         }
-
+        
         //MARK: - Appear
         .onAppear {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) { //проверка loader, задержка подгрузки данных на 1 сек.)
                 isLoading = false
                 var result = ""
-                for episode in character.episode {
+                for (index, episode) in character.episode.enumerated() {
                     let separated = episode.components(separatedBy: "/")
                     let episodeNumber = separated.last ?? ""
                     result += episodeNumber
-                    if episode != character.episode.last {
+                    if index != character.episode.count - 1 {
                         result += ","
                     }
+                }
+                if character.episode.count == 1 {
+                    result = "[\(result)]"
                 }
                 
                 NetworkManager.shared.makeRequst(url: Constants.episodeUrl, params: result) { (result: [ModelEpisodesRepresentable]) in
