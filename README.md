@@ -9,11 +9,12 @@
 
 ## Screenshots
 
-<img src=" https://github.com/SergeyKykhov/RickAndMorty/blob/main/Screenshots/1.png" width="214" height="433">
-<img src=" https://github.com/SergeyKykhov/RickAndMorty/blob/main/Screenshots/2.png" width="214" height="433">
-<img src=" https://github.com/SergeyKykhov/RickAndMorty/blob/main/Screenshots/3.png" width="214" height="433">
-<img src=" https://github.com/SergeyKykhov/RickAndMorty/blob/main/Screenshots/4.png" width="214" height="433">
-<img src=" https://github.com/SergeyKykhov/RickAndMorty/blob/main/Screenshots/5.png" width="214" height="433">
+<img src="https://github.com/SergeyKykhov/RickAndMorty/blob/main/Screenshots/1.png" width="214" height="433">
+<img src="https://github.com/SergeyKykhov/RickAndMorty/blob/main/Screenshots/2.png" width="214" height="433">
+<img src="https://github.com/SergeyKykhov/RickAndMorty/blob/main/Screenshots/3.png" width="214" height="433">
+<img src="https://github.com/SergeyKykhov/RickAndMorty/blob/main/Screenshots/4.png" width="214" height="433">
+<img src="https://github.com/SergeyKykhov/RickAndMorty/blob/main/Screenshots/5.png" width="214" height="433">
+
 
 
 ## Setup
