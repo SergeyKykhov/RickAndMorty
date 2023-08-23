@@ -23,7 +23,7 @@
 - SwiftUI
 - URLSession
 - MVC
-- Keychain
+- Kingfisher
 
 ## Authors
 - Sergey Kykhov - [@SergeyKykhov](https://github.com/SergeyKykhov)
